@@ -9,6 +9,8 @@ import  reducers  from './reducers';
 
 import App from './App';
 
+
+
 const store = createStore(reducers, compose(applyMiddleware(thunk)))
 //here we are connecting to the div with the ID "root"
 ReactDOM.render(
