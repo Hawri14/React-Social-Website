@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardActionArea, CardContent, CardMedia, Button, Typography, CardActions } from "@material-ui/core";
+import { Card, CardActions, CardContent, CardMedia, Button, Typography } from "@material-ui/core";
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import DeleteIcon from '@material-ui/icons/Delete';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
@@ -7,7 +7,7 @@ import moment from 'moment';
 
 import useStyles from './styles';
 
-const Post = ({ post, setCurrectId }) => {
+const Post = ({ post, setCurrentId }) => {
     const classes = useStyles();
     return (
         <Card className={classes.card}>
@@ -17,15 +17,16 @@ const Post = ({ post, setCurrectId }) => {
                 <Typography varient="body2">{moment(post.createdAt).fromNow()}</Typography>
             </div>
             <div className={classes.overlay2}>
-                <Button style={{color: 'white'}} size="small" onClick={() => setCurrectId(post._id)}>
+                <Button style={{color: 'white'}} size="small" onClick={() => setCurrentId(post._id)}>
                     <MoreHorizIcon fontSize="medium" />
                 </Button>
             </div>
             <div className={classes.details}>
             <Typography varient="body2" color="textSecondary">{post.tags.map((tag) => `#${tag} `)}</Typography>
             </div>
+            <Typography className={classes.title} varient="h5" gutterBottom>{post.title}</Typography>
             <CardContent>
-                <Typography className={classes.title} varient="h5" gutterBottom>{post.message}</Typography>
+                <Typography varient="h5" gutterBottom>{post.message}</Typography>
             </CardContent>
             <CardActions className={classes.cardActions}>
                 <Button size="small" color="primary" onClick={() => {} }>
